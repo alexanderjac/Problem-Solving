@@ -14,11 +14,13 @@ class Solution:
         heap =[]
         heapq.heapify(heap)
         length=  len(costs)
+        result =0
         for a,b in costs:
             heapq.heappush(heap, (b-a) )
-        cost_final = [ a for a, _ in costs ]
+            result +=a
+        # cost_final = [ a for a, _ in costs ]
         counter =0
-        result = sum(cost_final)
+        # result = sum(cost_final)
         while counter <length//2:
             ele  = heapq.heappop(heap)
             result +=ele

@@ -11,7 +11,7 @@ class Solution:
                 longest_sub = max(longest_sub, cells_count)
             else:
                 freq[s[lptr]] -=1
-                # if not freq[s[lptr]]:
-                #     freq.pop(s[lptr])
+                if not freq[s[lptr]]:
+                    freq.pop(s[lptr])
                 lptr+=1
         return longest_sub

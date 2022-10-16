@@ -11,10 +11,8 @@ class Solution:
                 elif grid[i][j] ==1:
                     count_1 +=1
         if count_1 == 0:
-            print(count_1)
             return 0
         count = 0
-        print(queue)
         while queue:
             for i in range(len(queue)):
                 r, c  = queue.pop(0)
@@ -26,7 +24,6 @@ class Solution:
                         grid[row][col] = 2
                         queue.append((row, col))
             count +=1
-        print(grid)
         for i in range(height):
             for j in range(width):
                 if grid[i][j] ==1:

@@ -8,18 +8,34 @@ class Node:
 """
 
 class Solution:
-    def __init__(self):
-        self.visited  = {}
     def copyRandomList(self, head: 'Optional[Node]') -> 'Optional[Node]':
         if not head:
-            return None
-        if head in self.visited:
-            return self.visited[head]
-        node = Node(head.val) 
-        self.visited[head] = node
-        node.next = self.copyRandomList(head.next)
-        node.random = self.copyRandomList(head.random)
-        return node
+            return 
+        originalNode = head
+        while originalNode:
+            lastNode = originalNode.next
+            newNode = Node(originalNode.val)
+            originalNode.next = newNode
+            newNode.next = lastNode
+            originalNode = lastNode
+        originalNode = head
+        while originalNode:
+            newNode = originalNode.next
+            print(originalNode.val)
+            newNode.random = originalNode.random.next if  originalNode.random else None
+            originalNode = newNode.next
+        originalNode = head
+        return_head = originalNode.next
+        # return originalNode
+        while originalNode:
+            newNode = originalNode.next
+            originalNode.next = newNode.next
+            if not newNode.next:
+                originalNode.next =None
+                break
+            originalNode = newNode.next  
+            newNode.next =originalNode.next
+        return return_head
         
             
             

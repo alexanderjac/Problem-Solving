@@ -1,5 +1,6 @@
 class Solution:
     def evalRPN(self, tokens: List[str]) -> int:
+        print(int(2/4))
         stack = []
         hashset = {"+","-", "/","*"}
         for char in tokens:

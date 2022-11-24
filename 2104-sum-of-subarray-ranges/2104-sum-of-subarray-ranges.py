@@ -1,5 +1,22 @@
 class Solution:
     def subArrayRanges(self, nums: List[int]) -> int:
+        # nums.sort()
+        res = 0
+        n = len(nums)
+        for i in range(n):
+            minvalue =  math.inf
+            maxvalue = -math.inf
+            for j in range(i,n):
+                minvalue = min(nums[j], minvalue)
+                maxvalue = max(nums[j],maxvalue)
+                res += maxvalue - minvalue
+        return res
+
+    """
+    
+    
+    class Solution:
+    def subArrayRanges(self, nums: List[int]) -> int:
         n = len(nums)
         answer = 0
         
@@ -11,3 +28,4 @@ class Solution:
                 answer += max_val - min_val
                 
         return answer
+    """

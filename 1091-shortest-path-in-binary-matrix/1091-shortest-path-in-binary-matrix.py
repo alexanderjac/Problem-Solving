@@ -1,14 +1,15 @@
+from collections import deque
 class Solution:
     def shortestPathBinaryMatrix(self, grid: List[List[int]]) -> int:  
         rowsize = len(grid)
         colsize = len(grid[0])
         if grid[0][0] or grid[rowsize-1][colsize-1]:
             return -1
-        queue = [(0, 0, 1)]
+        queue = deque([(0, 0, 1)])
         # visited = set()
         grid[0][0] =1
         while queue:
-            r, c, d = queue.pop(0)
+            r, c, d = queue.popleft()
             if r == rowsize -1 and c== colsize-1:
                 return d
             # visited.add((r,c))

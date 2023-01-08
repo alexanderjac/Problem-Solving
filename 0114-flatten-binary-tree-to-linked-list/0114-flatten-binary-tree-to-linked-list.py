@@ -5,28 +5,37 @@
 #         self.left = left
 #         self.right = right
 class Solution:
-    def inorder(self, root, array):
-        if root == None:
-            return
-        
-        array.append(root)
-        if root.left:
-            self.inorder(root.left, array)
-            root.left = None
-        if root.right:
-            self.inorder(root.right, array)
-            root.right = None
-        
+
     def flatten(self, root: Optional[TreeNode]) -> None:
         """
         Do not return anything, modify root in-place instead.
         """
         if root == None:
             return None
-        array = []
-        self.inorder(root, array)
-        head = array[0]
-        for i in range(1, len(array)):
-            head.right = array[i]
-            head = head.right
-        return head
+        head = root
+        while root :
+            if root.left:
+                curr = root.left
+                while curr.right:
+                    curr = curr.right
+         
+                # if curr.right == None :
+                curr.right = root.right
+                root.right = root.left
+                root.left  = None
+            root = root.right
+                    
+                    
+                    
+                    
+        """
+                    while node:
+        if node.left:
+            pre=node.left
+            while pre.right:
+                pre=pre.right
+            pre.right=node.right
+            node.right=node.left
+            node.left=None
+        node=node.right
+        """

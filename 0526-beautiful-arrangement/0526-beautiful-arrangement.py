@@ -1,7 +1,7 @@
 class Solution:
     def countArrangement(self, n: int) -> int:
         self.count = 0
-        self.helper(self.count,n, 1, [])
+        self.helper(self.count,n, 1, set())
         return self.count
     def helper(self,count, n, idx, visited):
         if len(visited) == n:
@@ -9,9 +9,9 @@ class Solution:
             return
         for i in range(1, n+1):
             if i not in visited and( i%idx ==0 or idx%i == 0):
-                visited.append(i)
+                visited.add(i)
                 self.helper(self.count, n,  idx+1, visited)
-                visited.pop()
+                visited.remove(i)
 """
 class Solution:
     def countArrangement(self, n: int) -> int:

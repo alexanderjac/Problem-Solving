@@ -1,7 +1,7 @@
 class Solution:
     def ladderLength(self, beginWord: str, endWord: str, wordList: List[str]) -> int:
         
-        wordList.append(beginWord)
+        # wordList.append(beginWord)
         wordList = set(wordList)
         queue = collections.deque([[beginWord,1]])
         while queue:
@@ -12,6 +12,7 @@ class Solution:
                 for c in 'abcdefghijklmnopqrstuvwxyz':
                     nextWord = word[:i] +c + word[i+1:]
                     if nextWord in wordList:
+                        print(nextWord)
                         queue.append([nextWord,length+1])
                         wordList.remove(nextWord)
         return 0

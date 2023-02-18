@@ -18,10 +18,10 @@ class Solution:
     def dfs(self, root):
         if not root:
             return 0
-        leftSum = max(root.val + self.dfs(root.left),  root.val)
-        rightSum = max(root.val + self.dfs(root.right), root.val)
-        self.res = max(self.res, leftSum+rightSum-root.val)
-        return max(leftSum, rightSum)
+        leftSum = max( self.dfs(root.left),  0)
+        rightSum = max(  self.dfs(root.right), 0)
+        self.res = max(self.res, leftSum+rightSum+root.val)
+        return max(leftSum, rightSum) + root.val
         
     def maxPathSum(self, root: Optional[TreeNode]) -> int:
         self.res = -float("inf")

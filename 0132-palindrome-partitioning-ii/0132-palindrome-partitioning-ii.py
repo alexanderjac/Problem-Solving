@@ -1,6 +1,6 @@
 class Solution:
-    def isPalindrome(self, i,j, s):
-        left, right = i,j
+    def isPalindrome(self,  s):
+        left, right = 0, len(s)-1
         while left<= right:
             if s[left]!= s[right]:
                 return False
@@ -29,19 +29,11 @@ class Solution:
                     cuts[i] = min(cuts[i], (cuts[j - 1] + 1) if j - 1 >= 0 else 0)
                     
         return cuts[-1]
-        dp = [0 for i in range(len(s)+1)]
-        for i in range(len(s)-1,-1,-1):
-            mincost = float("inf")
-            for j in range(i, len(s)):
-                # print(s[i:j], s[i:j][::-1])
-                if self.isPalindrome(i, j, s):
-                # pre = s[i:j]
-                # repre = s[i:j][::-1]
-                # if pre == repre:
-                    cost = 1 + dp[j+1]
-                    mincost  = min(mincost,cost)
-            dp[i] = mincost
-        return dp[0] -1
+    
+    
+
+
+
      
     """
     Another TLE

@@ -1,10 +1,26 @@
 class Solution:
+    def posLeft(self,arr, target,low, high ):
+        # if low ==0 and arr[low]>target:
+        #     return 0
+        while low<  high :
+            mid = low + (high- low)//2
+            # if  arr[mid-1]<target and arr[mid]>=target:
+            #     return mid 
+            if arr[mid] >= target:
+                high = mid  
+            else:
+                low = mid +1
+            
+#         for i in range(low,high):
+#             if arr[i]>= target:
+#                 return i 
+        return low  
     def countFairPairs(self, nums: List[int], lower: int, upper: int) -> int:
         nums.sort()
         result = 0
         for i in range(len(nums)):
             num = nums[i]
-            result += bisect_right(nums, upper-num, i+1, len(nums))  -bisect_left(nums, lower-num, i+1, len(nums))
+            result += bisect_right(nums, upper-num, i+1, len(nums))  - self.posLeft(nums, lower-num, i+1, len(nums))
         
         return result
         nums.sort()

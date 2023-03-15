@@ -15,7 +15,7 @@ class Solution:
         while low<high:
             mid = low + (high -low)//2
             if arr[mid] > target:
-                high = mid  
+                high = mid 
             else:
                 low = mid +1
 #         for i in range(low,high):

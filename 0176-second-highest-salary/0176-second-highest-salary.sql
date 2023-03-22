@@ -7,7 +7,7 @@
 # select  max(salary) as SecondHighestSalary from cte where rankNo = 2
 
 WITH CTE AS
-			(SELECT Salary, DENSE_RANK() OVER (ORDER BY Salary desc) AS RANK_desc
+			(SELECT Salary, dense_rank() OVER (ORDER BY Salary desc) AS RANK_desc
 			   FROM Employee)
 SELECT max(salary) AS SecondHighestSalary
   FROM CTE

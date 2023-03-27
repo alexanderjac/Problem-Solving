@@ -3,8 +3,9 @@
 SELECT
     a.Name AS 'Employee'
 FROM
-    Employee AS a,
+    Employee AS a join
     Employee AS b
+    on a.ManagerId = b.Id
 WHERE
     a.ManagerId = b.Id
         AND a.Salary > b.Salary

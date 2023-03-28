@@ -4,7 +4,7 @@ with result as(
 SELECT
         request_at,
         sum(case when status != 'completed' then 1 
-        else 0 end ) as cancelled_no, count(distinct id) as total
+        else 0 end ) as cancelled_no, count( id) as total
 FROM
         Trips t JOIN Users u
         ON t.client_id = u.users_id

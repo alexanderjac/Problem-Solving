@@ -5,4 +5,4 @@ with result as (
 )
 
 select id from result 
-where temperature>prevtemperature and datediff(prevrecordDate,recordDate  ) =-1
+where temperature>prevtemperature and timestampdiff( day, recordDate, prevrecordDate  ) =-1

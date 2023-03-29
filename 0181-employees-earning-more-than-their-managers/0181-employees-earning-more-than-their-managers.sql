@@ -7,8 +7,9 @@ FROM
     Employee AS b
     on a.ManagerId = b.Id
 WHERE
-    a.ManagerId = b.Id
-        AND a.Salary > b.Salary
+    # a.ManagerId = b.Id
+        # AND 
+        a.Salary > b.Salary
 
 # select   e.name as Employee
 #     from employee e, employee m  

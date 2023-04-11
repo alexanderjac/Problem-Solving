@@ -6,8 +6,10 @@ from
      Employee m join Employee e
 on   m.id = e.managerId
 group by 1
+having count(e.id) >=5
 )
 
-select name from cte where reports>=5
+select name from cte
+# where reports>=5
 
      
